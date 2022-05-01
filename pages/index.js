@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import React, {useEffect, useState} from "react";
 import { arrayMoveImmutable } from 'array-move';
 import SortableList from '../components/SortableList';

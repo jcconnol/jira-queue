@@ -3,8 +3,9 @@
 //TODO retrieve ticket info
 //TODO save ticket info to file
 //TODO delete ticket from file
-  
-export default function userHandler(req, res) {
+const fs = require('fs')
+
+export default async function userHandler(req, res) {
   const {
     query: { id, name },
     method,
@@ -12,18 +13,21 @@ export default function userHandler(req, res) {
 
   switch (method) {
     case 'GET':
-      // Get ticket from file
-      var fakeData = [
-        'TRUSTED-1830',
-        'TRUSTED-99929',
-        'TRUSTED-99929',
-        'TRUSTED-99',
-        'TRUSTED-99929'
-      ];
+      await fs.readFile('../jira-queue/pages/api/ticketList.json', 'utf8', async function (err,data) {
+        var dataOutput = {};
 
-      res.status(200).json({
-        "tickets": fakeData
-      })
+        if (err) {
+          console.log(err)
+          return ['Error reading tickets'];
+        }
+
+        console.log(data)
+        dataOutput = data;
+        console.log(dataOutput);
+        res.status(200).json(dataOutput);
+        return data;
+      });
+
       break
     case 'POST':
       // Update, add or delete ticket
