@@ -13,16 +13,14 @@ export default async function userHandler(req, res) {
 
   switch (method) {
     case 'GET':
-      await fs.readFile('../jira-queue/pages/api/ticketList.json', 'utf8', async function (err,data) {
-        var dataOutput = {};
-
+      await fs.readFile('./pages/api/ticketList.json', 'utf8', async function (err,data) {
         if (err) {
           console.log(err)
           return ['Error reading tickets'];
         }
 
         console.log(data)
-        dataOutput = data;
+        var dataOutput = data;
         console.log(dataOutput);
         res.status(200).json(dataOutput);
         return data;
