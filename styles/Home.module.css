@@ -114,3 +114,15 @@
     flex-direction: column;
   }
 }
+
+.main-container {
+  text-align: center;
+  margin: auto;
+  max-width: 50%;
+}
+
+@media screen and (max-width: 580px){
+  .main-container {
+    width: 100%;
+  }
+}
