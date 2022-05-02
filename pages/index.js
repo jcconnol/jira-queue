@@ -32,7 +32,7 @@ function Home() {
   return (
     <div className="App">
       <div className={styles['main-container']}>
-        <h1>John Connolly's Jira Queue</h1>
+        <h1>John Connolly&apos;s Jira Queue</h1>
         <SortableList items={items} onSortEnd={onSortEnd} />
       </div>
     </div>
