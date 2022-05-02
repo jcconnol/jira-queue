@@ -1,0 +1,18 @@
+{
+  "permissions": {},
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "jiraHostUrl",
+      "environmentVariableName": "jira_host_url"
+    },
+    {
+      "cloudFormationParameterName": "jiraAuthToken",
+      "environmentVariableName": "jira_auth_token"
+    }
+  ],
+  "secretNames": [
+    "jira_host_url",
+    "jira_auth_token"
+  ]
+}

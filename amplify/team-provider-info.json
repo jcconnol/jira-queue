@@ -1,23 +1,32 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-jiraqueue-dev-221900-authRole",
-            "UnauthRoleArn": "arn:aws:iam::507124228233:role/amplify-jiraqueue-dev-221900-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::507124228233:role/amplify-jiraqueue-dev-221900-authRole",
-            "Region": "us-east-2",
-            "DeploymentBucketName": "amplify-jiraqueue-dev-221900-deployment",
-            "UnauthRoleName": "amplify-jiraqueue-dev-221900-unauthRole",
-            "StackName": "amplify-jiraqueue-dev-221900",
-            "StackId": "arn:aws:cloudformation:us-east-2:507124228233:stack/amplify-jiraqueue-dev-221900/1ccdcc00-c76b-11ec-b77c-0613068a5952",
-            "AmplifyAppId": "d2dwh4xxlrefog"
-        },
-        "categories": {
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "d2dwh4xxlrefog",
-                    "type": "cicd"
-                }
-            }
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jiraqueue-dev-221900-authRole",
+      "UnauthRoleArn": "arn:aws:iam::507124228233:role/amplify-jiraqueue-dev-221900-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::507124228233:role/amplify-jiraqueue-dev-221900-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-jiraqueue-dev-221900-deployment",
+      "UnauthRoleName": "amplify-jiraqueue-dev-221900-unauthRole",
+      "StackName": "amplify-jiraqueue-dev-221900",
+      "StackId": "arn:aws:cloudformation:us-east-2:507124228233:stack/amplify-jiraqueue-dev-221900/1ccdcc00-c76b-11ec-b77c-0613068a5952",
+      "AmplifyAppId": "d2dwh4xxlrefog"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2dwh4xxlrefog",
+          "type": "cicd"
         }
+      },
+      "function": {
+        "jiraqueue4d7b6aac": {
+          "jiraHostUrl": "jcconnol4.atlassian.net",
+          "jiraAuthToken": "amNjb25ub2w0QGdtYWlsLmNvbTpmTGREUXVqem9IeGJxd0xUeENEejkwRDA=",
+          "secretsPathAmplifyAppId": "d2dwh4xxlrefog",
+          "deploymentBucketName": "amplify-jiraqueue-dev-221900-deployment",
+          "s3Key": "amplify-builds/jiraqueue4d7b6aac-49672f7a4c794b6b6e38-build.zip"
+        }
+      }
     }
+  }
 }
