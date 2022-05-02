@@ -4,6 +4,7 @@
 //TODO delete ticket from file
 const fs = require('fs')
 const ticketData = require('./getTicketInfo')
+// exports.handler =  async (event) => {
 
 export default async function userHandler(req, res) {
   const {
@@ -21,10 +22,9 @@ export default async function userHandler(req, res) {
         }
 
         ticketDataList = await ticketData.formatTicketData(data);
-        //res.status(200).json(ticketDataList);
+        res.status(200).json(ticketDataList);
       });
 
-      return ticketDataList
       break
     case 'POST':
       // Update, add or delete ticket
@@ -34,4 +34,12 @@ export default async function userHandler(req, res) {
       res.setHeader('Allow', ['GET', 'POST'])
       res.status(405).end(`Method ${method} Not Allowed`)
   }
+
+  // return {
+  //   statusCode: 200,
+  //   body: JSON.stringify(ticketDataList),
+  //   headers: {
+  //       "Access-Control-Allow-Origin": "*",
+  //   }
+  // };
 }
