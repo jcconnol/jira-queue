@@ -4,6 +4,7 @@ import { SortableContainer } from 'react-sortable-hoc';
 import styles from '../styles/SortableList.module.css'
  
 const SortableList = (props) => {
+  console.log(props.items)
   return (
     <ul className={styles['sortable-item-ul']}>
       {props.items.map((value, index) => (

@@ -12,7 +12,7 @@ function Home() {
         return response.json()
       })
       .then(data => {
-        setItems(data.tickets)
+        setItems(data)
       })
       .catch(err =>{
         setItems(['Error fetching tickets!'])
