@@ -28,7 +28,16 @@ export default async function userHandler(req, res) {
       break
     case 'POST':
       // Update, add or delete ticket
-      res.status(200).json({ id, name: name || `User ${id}` })
+      var ticketList = req.body.ticketList;
+      await fs.writeFile('./pages/api/ticketList.json', ticketList, async function (err,data) {
+        if (err) {
+          console.log(err)
+          res.status(500).text("Error writing ticket data");
+        }
+
+        res.status(200).json(ticketDataList);
+      });
+
       break
     default:
       res.setHeader('Allow', ['GET', 'POST'])
