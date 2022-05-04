@@ -6,12 +6,5 @@ export type AmplifyDependentResourcesAttributes = {
             "Region": "string",
             "LambdaExecutionRole": "string"
         }
-    },
-    "api": {
-        "JiraQueue": {
-            "RootUrl": "string",
-            "ApiName": "string",
-            "ApiId": "string"
-        }
     }
 }
