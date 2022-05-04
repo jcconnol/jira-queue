@@ -1,10 +1,17 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "jiraqueue4d7b6aac": {
+        "jiraQueueFunction": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",
             "LambdaExecutionRole": "string"
+        }
+    },
+    "api": {
+        "jiraQueueApi": {
+            "RootUrl": "string",
+            "ApiName": "string",
+            "ApiId": "string"
         }
     }
 }

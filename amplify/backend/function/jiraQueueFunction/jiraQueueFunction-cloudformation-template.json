@@ -16,12 +16,6 @@
     "s3Key": {
       "Type": "String"
     },
-    "jiraHostUrl": {
-      "Type": "String"
-    },
-    "jiraAuthToken": {
-      "Type": "String"
-    },
     "secretsPathAmplifyAppId": {
       "Type": "String"
     }
@@ -56,12 +50,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "jiraqueue4d7b6aac",
+            "jiraQueueFunction",
             {
               "Fn::Join": [
                 "",
                 [
-                  "jiraqueue4d7b6aac",
+                  "jiraQueueFunction",
                   "-",
                   {
                     "Ref": "env"
@@ -79,7 +73,7 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "jira_host_url": {
+            "jira_token": {
               "Fn::Join": [
                 "",
                 [
@@ -93,33 +87,11 @@
                         "env": {
                           "Ref": "env"
                         },
-                        "functionName": "jiraqueue4d7b6aac"
+                        "functionName": "jiraQueueFunction"
                       }
                     ]
                   },
-                  "jira_host_url"
-                ]
-              ]
-            },
-            "jira_auth_token": {
-              "Fn::Join": [
-                "",
-                [
-                  {
-                    "Fn::Sub": [
-                      "/amplify/${appId}/${env}/AMPLIFY_${functionName}_",
-                      {
-                        "appId": {
-                          "Ref": "secretsPathAmplifyAppId"
-                        },
-                        "env": {
-                          "Ref": "env"
-                        },
-                        "functionName": "jiraqueue4d7b6aac"
-                      }
-                    ]
-                  },
-                  "jira_auth_token"
+                  "jira_token"
                 ]
               ]
             }
@@ -142,12 +114,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "jiraqueueLambdaRolee064c057",
+            "jiraqueueLambdaRole58082542",
             {
               "Fn::Join": [
                 "",
                 [
-                  "jiraqueueLambdaRolee064c057",
+                  "jiraqueueLambdaRole58082542",
                   "-",
                   {
                     "Ref": "env"
@@ -259,7 +231,7 @@
                           "env": {
                             "Ref": "env"
                           },
-                          "functionName": "jiraqueue4d7b6aac"
+                          "functionName": "jiraQueueFunction"
                         }
                       ]
                     },

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { arrayMoveImmutable } from 'array-move';
+import Amplify, { API } from "aws-amplify";
 import SortableList from '../components/SortableList';
 import styles from '../styles/Home.module.css'
 
@@ -7,7 +8,9 @@ function Home() {
   const [items, setItems] = useState([]);
 
   const fetchTickets = () => {
-    fetch(`/api/ticket-info`)
+    //REST API endpoint: https://fb02yk0pp1.execute-api.us-east-2.amazonaws.com/dev
+    //Or use aws library
+    API.get("jiraQueueApi", `/api/ticket-info`)
       .then(response => {
         return response.json()
       })

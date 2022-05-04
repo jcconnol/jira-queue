@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/tickets": {
+      "name": "/tickets",
+      "lambdaFunction": "jiraQueueFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

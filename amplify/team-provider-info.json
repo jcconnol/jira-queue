@@ -19,12 +19,10 @@
         }
       },
       "function": {
-        "jiraqueue4d7b6aac": {
-          "jiraHostUrl": "jcconnol4.atlassian.net",
-          "jiraAuthToken": "amNjb25ub2w0QGdtYWlsLmNvbTpmTGREUXVqem9IeGJxd0xUeENEejkwRDA=",
+        "jiraQueueFunction": {
           "secretsPathAmplifyAppId": "d2dwh4xxlrefog",
           "deploymentBucketName": "amplify-jiraqueue-dev-221900-deployment",
-          "s3Key": "amplify-builds/jiraqueue4d7b6aac-49672f7a4c794b6b6e38-build.zip"
+          "s3Key": "amplify-builds/jiraQueueFunction-68694474345243357768-build.zip"
         }
       }
     }

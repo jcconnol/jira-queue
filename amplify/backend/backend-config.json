@@ -7,12 +7,27 @@
     }
   },
   "function": {
-    "jiraqueue4d7b6aac": {
+    "jiraQueueFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
       "dependsOn": []
     }
   },
-  "api": {}
+  "api": {
+    "jiraQueueApi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "jiraQueueFunction",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
+    }
+  }
 }
