@@ -18,6 +18,7 @@ function Home() {
         setItems(data)
       })
       .catch(err =>{
+        console.log(err);
         setItems(['Error fetching tickets!'])
       })
   };
