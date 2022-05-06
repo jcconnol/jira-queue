@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jiraqueue-dev-64539-authRole",
+      "UnauthRoleArn": "arn:aws:iam::507124228233:role/amplify-jiraqueue-dev-64539-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::507124228233:role/amplify-jiraqueue-dev-64539-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-jiraqueue-dev-64539-deployment",
+      "UnauthRoleName": "amplify-jiraqueue-dev-64539-unauthRole",
+      "StackName": "amplify-jiraqueue-dev-64539",
+      "StackId": "arn:aws:cloudformation:us-east-2:507124228233:stack/amplify-jiraqueue-dev-64539/0e8922d0-cd32-11ec-bb7a-06dfbf115b12",
+      "AmplifyAppId": "d2c3l0j9lzaaet"
+    }
+  }
+}
