@@ -8,7 +8,7 @@ const SortableList = (props) => {
   return (
     <ul className={styles['sortable-item-ul']}>
       {props.items.map((value, index) => (
-        <SortableItem key={`item-${index}`} index={index} value={value} />
+        <SortableItem key={`item-${index}`} items={props.items} index={index} value={value} />
       ))}
     </ul>
   );

@@ -11,10 +11,12 @@ function ShowQueue() {
     //Or use aws library 
     await fetch(`https://6gdbc2gqda.execute-api.us-east-2.amazonaws.com/dev/api/get`)
       .then(response => {
+        console.log(response)
         return response.json()
       })
       .then(data => {
         //TODO if no data then set items to "error"
+        console.log(data);
         setItems(data)
       })
       .catch(err =>{

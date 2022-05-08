@@ -2,12 +2,12 @@ import React from 'react';
 import { SortableElement } from 'react-sortable-hoc';
  
 const SortableItem = (props) => {
-  console.log(props)
   return (
     <div>
+      <img src={props.value.iconUrl} />
       <div>{props.value.key}</div>
-      <div>{props.value.avatarImage}</div>
-      <div>{props.value.summary}</div>
+      <div>{props.value.name}</div>
+      <div>{props.value.description}</div>
     </div>
   )
 }
