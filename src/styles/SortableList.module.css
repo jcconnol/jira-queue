@@ -1,3 +1,7 @@
 .sortable-item-ul {
     padding: 0;
 }
+
+.sortable-list-container {
+    text-align: center;
+}
