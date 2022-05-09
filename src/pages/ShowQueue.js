@@ -39,7 +39,9 @@ function ShowQueue() {
     <div className="App">
       <div className={styles['main-container']}>
         <h1>John Connolly&apos;s Jira Queue</h1>
-        <SortableList items={items} onSortEnd={onSortEnd} />
+        <div className={styles['list-container']}>
+          <SortableList items={items} onSortEnd={onSortEnd} />
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .item-container {
     display: flex;
-    padding-bottom: 3%;
+    padding: 3% 3%;
 }
 
 .item-container:hover {
@@ -31,4 +31,8 @@
 .item-link {
     display: block;
     text-align: left;
+}
+
+.space {
+    padding-left: 15px;
 }

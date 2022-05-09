@@ -7,7 +7,11 @@ const SortableItem = (props) => {
     <div className={styles['item-container']}>
       <img src={props.value.iconUrl} className={styles['item-icon']}/>
       <span>
-        <span className={styles['item-top-text']}>{props.value.key}  |  {props.value.name}</span>
+        <span className={styles['item-top-text']}>
+          {props.value.key} 
+          <span className={styles['space']} /> 
+          {props.value.name}
+        </span>
         <span className={styles['description']}>{props.value.description}</span>
         <span className={styles['item-link']}><a href=''>Go To</a></span>
       </span>
