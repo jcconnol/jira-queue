@@ -1,19 +1,18 @@
 import React from 'react';
-import SortableItem from './SortableItem';
-import { SortableContainer } from 'react-sortable-hoc';
+import UnsortableItem from './UnsortableItem';
 import styles from '../styles/SortableList.module.css'
  
-const SortableList = (props) => {
+const UnsortableList = (props) => {
   console.log(props.items)
   return (
     <ul className={styles['sortable-item-ul']}>
       <div className={styles['sortable-list-container']}>
         {props.items.map((value, index) => (
-          <SortableItem lockAxis="x" key={`item-${index}`} items={props.items} index={index} value={value} />
+          <UnsortableItem key={`item-${index}`} items={props.items} index={index} value={value} />
         ))}
       </div>
     </ul>
   );
 }
  
-export default SortableContainer(SortableList);
+export default UnsortableList;

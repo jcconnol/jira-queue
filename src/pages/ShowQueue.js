@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { arrayMoveImmutable } from 'array-move';
-import SortableList from '../components/SortableList';
+import UnsortableList from '../components/UnsortableList';
 import styles from '../styles/ShowQueue.module.css'
 
 function ShowQueue() {
@@ -28,19 +27,13 @@ function ShowQueue() {
   useEffect(() => {
     fetchTickets()
   }, [])
-
-  const onSortEnd = ({ oldIndex, newIndex }) => {
-    setItems(prevItem => (arrayMoveImmutable(prevItem, oldIndex, newIndex)));
-    console.log("list changed")
-      //TODO send items to api to save on change
-  };
  
   return (
     <div className="App">
       <div className={styles['main-container']}>
         <h1>John Connolly&apos;s Jira Queue</h1>
         <div className={styles['list-container']}>
-          <SortableList items={items} onSortEnd={onSortEnd} />
+          <UnsortableList items={items} />
         </div>
       </div>
     </div>

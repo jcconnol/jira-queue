@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
           <Route exact path='/' element={<ShowQueue />} />
-          <Route path='/edit' element={<EditQueue/>} />
+          <Route exact path='/edit' element={<EditQueue/>} />
       </Routes>
     </Router>
   );
