@@ -5,3 +5,31 @@
 .sortable-list-container {
     text-align: center;
 }
+
+.sortable-item {
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+}
+
+.item-delete-icon {
+    justify-content: right;
+    margin: auto 0;
+    height: 20px;
+    width: 20px;
+}
+
+.sortable-item-delete {
+    border: none;
+    margin: auto 0;
+    text-align: center;
+    height: 30px;
+    border-radius: 50px;
+    background-color: white;
+    text-decoration: none;
+}
+
+.sortable-item-delete:hover {
+    background-color: black;
+    color: white;
+}

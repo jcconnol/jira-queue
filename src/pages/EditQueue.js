@@ -34,7 +34,7 @@ function EditQueue() {
       ticketList.push(items[i].key);
     }
 
-    console.log(ticketList)
+    console.log(ticketList);
 
     var params = {
       method: "post",

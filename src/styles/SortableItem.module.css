@@ -11,9 +11,11 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    height: 100%;
+    width: 10%;
     padding-right: 10px;
     flex-shrink: 0;
+    height: fit-content;
+    text-align: right;
 }
 
 .item-top-text {
