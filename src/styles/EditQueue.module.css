@@ -132,3 +132,11 @@ max-width: 45%;
 width: 75%;
 margin: auto;
 }
+
+.save-tickets-button {
+  margin: 10% 0;
+}
+
+.add-tickets-button {
+  margin-right: 5%;
+}

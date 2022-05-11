@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SortableItem from './SortableItem';
 import { TiDelete } from 'react-icons/ti';
 import { SortableContainer } from 'react-sortable-hoc';
 import styles from '../styles/SortableList.module.css'
  
 const SortableList = (props) => {
-  console.log(props.items);
+  const [any, forceUpdate] = useState(0);
 
   async function deleteTicket(event) {
     var index = event.target.getAttribute("index");
-    var newArray = props.items.splice(index, index+1);
+    props.items.splice(index, index+1);
+    forceUpdate(any+1);
   }
 
   return (

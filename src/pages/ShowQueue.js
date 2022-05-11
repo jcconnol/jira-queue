@@ -16,7 +16,7 @@ function ShowQueue() {
       .then(data => {
         //TODO if no data then set items to "error"
         console.log(data);
-        setItems(data)
+        setItems(data.ticketList)
       })
       .catch(err =>{
         console.log(err);

@@ -1,6 +1,7 @@
 .item-container {
     display: flex;
     padding: 3% 3%;
+    width: 100%;
 }
 
 .item-container:hover {

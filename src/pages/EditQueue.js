@@ -6,13 +6,18 @@ import styles from '../styles/EditQueue.module.css'
 function EditQueue() {
   const [items, setItems] = useState([]);
 
+  const addTicket = () => {
+    
+  }
+
   const fetchTickets = async () => {
     await fetch(`https://6gdbc2gqda.execute-api.us-east-2.amazonaws.com/dev/api/get`)
       .then(response => {
         return response.json()
       })
       .then(data => {
-        setItems(data)
+        console.log(data)
+        setItems(data.ticketList)
       })
       .catch(err =>{
         console.log(err);
@@ -31,10 +36,15 @@ function EditQueue() {
   async function updateTicketList() {
     var ticketList = [];
     for(var i = 0; i < items.length; i++){
-      ticketList.push(items[i].key);
-    }
+      var itemObj = {
+        key: items[i].key,
+        name: items[i].name,
+        iconUrl: items[i].iconUrl,
+        description: items[i].description
+      }
 
-    console.log(ticketList);
+      ticketList.push(itemObj);
+    }
 
     var params = {
       method: "post",
@@ -48,7 +58,6 @@ function EditQueue() {
 
     await fetch(`https://6gdbc2gqda.execute-api.us-east-2.amazonaws.com/dev/api/update`, params)
       .then(response => {
-        console.log(response);
         alert("Queue Saved!")
         return response
       })
@@ -66,7 +75,8 @@ function EditQueue() {
         <div className={styles['list-container']}>
           <SortableList items={items} onSortEnd={onSortEnd} />
         </div>
-      <button onClick={updateTicketList}>Save</button>
+        <button onClick={addTicket} className={styles['add-tickets-button']}>Add</button>
+        <button onClick={updateTicketList} className={styles['save-tickets-button']}>Save</button>
       </div>
     </div>
   );
