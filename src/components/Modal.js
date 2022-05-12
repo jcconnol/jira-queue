@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styles from "../styles/Modal.module.css"
 
-export const Modal = ({ setShowModal }) => {
+export const Modal = ({ setShowModal, onModalChange  }) => {
   // close the modal when clicking outside the modal.
   const [ticketData, updateTicketData] = useState({});
 
@@ -12,12 +12,12 @@ export const Modal = ({ setShowModal }) => {
     }
   };
 
-  const setSaveTicket = () => {
-    
+  const setSaveTicket = (e) => {
+    onModalChange(ticketData);
+    setShowModal(false);
   }
 
   const changeTicketInfo = (e) => {
-    console.log(e.target.id);
     var ticketId = e.target.id;
     switch (ticketId) {
       case 'ticket-id':
@@ -37,7 +37,6 @@ export const Modal = ({ setShowModal }) => {
     }
   }
 
-
   //render the modal JSX in the portal div.
   return (
     <div className={styles["container"]} ref={modalRef} onClick={closeModal}>
@@ -52,7 +51,7 @@ export const Modal = ({ setShowModal }) => {
         </div><div>
           Ticket icon link: <input onChange={changeTicketInfo} id="ticket-icon"></input>
         </div>
-        <button onClick={() => setSaveTicket(false)} className={styles['save-button']}>Save</button>
+        <button onClick={setSaveTicket} className={styles['save-button']}>Save</button>
         <button onClick={() => setShowModal(false)} className={styles['close-button']}>X</button>
       </div>
     </div>

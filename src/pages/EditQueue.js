@@ -12,15 +12,16 @@ function EditQueue() {
     setShowModal(true);
   };
 
-  const addTicket = (addItem) => {
-    var addItems = items.push({
-      key: addItem.key,
-      name: addItem.name,
-      iconUrl: addItem.iconUrl,
-      description: addItem.description
-    });
-    setItems(addItem);
-  }
+  // const addTicket = (addItem) => {
+  //   var addItems = items.push({
+  //     key: addItem.key,
+  //     name: addItem.name,
+  //     iconUrl: addItem.iconUrl,
+  //     description: addItem.description
+  //   });
+
+  //   setItems(addItem);
+  // }
 
   const fetchTickets = async () => {
     await fetch(`https://6gdbc2gqda.execute-api.us-east-2.amazonaws.com/dev/api/get`)
@@ -28,7 +29,6 @@ function EditQueue() {
         return response.json()
       })
       .then(data => {
-        console.log(data)
         setItems(data.ticketList)
       })
       .catch(err =>{
@@ -79,6 +79,10 @@ function EditQueue() {
         setItems(['Error Saving tickets!'])
       });
   }
+
+  const onModalChange = (data) => {
+    items.push(data)
+  }
  
   return (
     <div className="App">
@@ -87,7 +91,7 @@ function EditQueue() {
         <div className={styles['list-container']}>
           <SortableList items={items} onSortEnd={onSortEnd} />
         </div>
-        {showModal ? <Modal setShowModal={setShowModal} /> : null}
+        {showModal ? <Modal setShowModal={setShowModal} onModalChange={(e) => {onModalChange(e)}} /> : null}
         <button onClick={openSaveModal} className={styles['add-tickets-button']}>Add</button>
         <button onClick={updateTicketList} className={styles['save-tickets-button']}>Save</button>
       </div>

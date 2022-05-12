@@ -7,11 +7,18 @@ import styles from '../styles/SortableList.module.css'
 const SortableList = (props) => {
   const [any, forceUpdate] = useState(0);
 
-  async function deleteTicket(event) {
-    var index = event.target.getAttribute("index");
+  async function deleteTicket(e) {
+    var index = e.target.getAttribute("index");
     props.items.splice(index, index+1);
     forceUpdate(any+1);
   }
+
+  const handleChange = event => {
+    props.onchange()
+  }
+
+  console.log("sortable list");
+  console.log(props.items)
 
   return (
     <ul className={styles['sortable-item-ul']}>
