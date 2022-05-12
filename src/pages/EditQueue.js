@@ -1,13 +1,25 @@
 import React, {useEffect, useState} from "react";
 import { arrayMoveImmutable } from 'array-move';
 import SortableList from '../components/SortableList';
+import { Modal } from "../components/Modal";
 import styles from '../styles/EditQueue.module.css'
 
 function EditQueue() {
   const [items, setItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
-  const addTicket = () => {
-    
+  const openSaveModal = () => {
+    setShowModal(true);
+  };
+
+  const addTicket = (addItem) => {
+    var addItems = items.push({
+      key: addItem.key,
+      name: addItem.name,
+      iconUrl: addItem.iconUrl,
+      description: addItem.description
+    });
+    setItems(addItem);
   }
 
   const fetchTickets = async () => {
@@ -75,7 +87,8 @@ function EditQueue() {
         <div className={styles['list-container']}>
           <SortableList items={items} onSortEnd={onSortEnd} />
         </div>
-        <button onClick={addTicket} className={styles['add-tickets-button']}>Add</button>
+        {showModal ? <Modal setShowModal={setShowModal} /> : null}
+        <button onClick={openSaveModal} className={styles['add-tickets-button']}>Add</button>
         <button onClick={updateTicketList} className={styles['save-tickets-button']}>Save</button>
       </div>
     </div>

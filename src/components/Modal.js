@@ -1,0 +1,60 @@
+import React, { useRef, useState } from "react";
+import styles from "../styles/Modal.module.css"
+
+export const Modal = ({ setShowModal }) => {
+  // close the modal when clicking outside the modal.
+  const [ticketData, updateTicketData] = useState({});
+
+  const modalRef = useRef();
+  const closeModal = (e) => {
+    if (e.target === modalRef.current) {
+      setShowModal(false);
+    }
+  };
+
+  const setSaveTicket = () => {
+    
+  }
+
+  const changeTicketInfo = (e) => {
+    console.log(e.target.id);
+    var ticketId = e.target.id;
+    switch (ticketId) {
+      case 'ticket-id':
+        ticketData.id = e.target.value
+        break;
+      case 'ticket-name':
+        ticketData.name = e.target.value
+        break;
+      case 'ticket-description':
+        ticketData.description = e.target.value
+        break;
+      case 'ticket-icon':
+        ticketData.icon = e.target.value
+        break;
+      default:
+        break;
+    }
+  }
+
+
+  //render the modal JSX in the portal div.
+  return (
+    <div className={styles["container"]} ref={modalRef} onClick={closeModal}>
+      <div className={styles["modal"]}>
+        <h2>Add Ticket</h2>
+        <div>
+          Ticket Id: <input onChange={changeTicketInfo} id="ticket-id"></input>
+        </div><div>
+          Ticket Name: <input onChange={changeTicketInfo} id="ticket-name"></input>
+        </div><div>
+          Ticket description: <input onChange={changeTicketInfo} id="ticket-description"></input>
+        </div><div>
+          Ticket icon link: <input onChange={changeTicketInfo} id="ticket-icon"></input>
+        </div>
+        <button onClick={() => setSaveTicket(false)} className={styles['save-button']}>Save</button>
+        <button onClick={() => setShowModal(false)} className={styles['close-button']}>X</button>
+      </div>
+    </div>
+  );
+};
