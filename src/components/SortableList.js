@@ -8,17 +8,13 @@ const SortableList = (props) => {
   const [any, forceUpdate] = useState(0);
 
   async function deleteTicket(e) {
+    console.log(e.target);
+    console.log(props.items);
     var index = e.target.getAttribute("index");
     props.items.splice(index, index+1);
+    console.log(props.items)
     forceUpdate(any+1);
   }
-
-  const handleChange = event => {
-    props.onchange()
-  }
-
-  console.log("sortable list");
-  console.log(props.items)
 
   return (
     <ul className={styles['sortable-item-ul']}>
@@ -27,7 +23,7 @@ const SortableList = (props) => {
           <div className={styles['sortable-item']}>
             <SortableItem lockAxis="x" key={`item-${index}`} items={props.items} index={index} value={value} />
             <button onClick={deleteTicket} class={styles['sortable-item-delete']} index={index}>
-              <TiDelete className={styles['item-delete-icon']} />
+              <TiDelete className={styles['item-delete-icon']} index={index} />
             </button>
           </div>
         ))}
