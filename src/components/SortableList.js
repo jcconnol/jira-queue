@@ -8,11 +8,8 @@ const SortableList = (props) => {
   const [any, forceUpdate] = useState(0);
 
   async function deleteTicket(e) {
-    console.log(e.target);
-    console.log(props.items);
     var index = e.target.getAttribute("index");
     props.items.splice(index, index+1);
-    console.log(props.items)
     forceUpdate(any+1);
   }
 
