@@ -3,7 +3,7 @@
 }
 
 .sortable-list-container {
-    text-align: center;
+    text-align: left;
 }
 
 .sortable-item {
@@ -13,7 +13,7 @@
 }
 
 .item-delete-icon {
-    justify-content: right;
+    justify-content: center;
     margin: auto 0;
     height: 20px;
     width: 20px;
@@ -21,9 +21,8 @@
 
 .sortable-item-delete {
     border: none;
-    margin: auto 0;
-    text-align: center;
-    height: 30px;
+    margin: auto 2%;
+    width: 8%;
     border-radius: 50px;
     background-color: white;
     text-decoration: none;
@@ -32,4 +31,10 @@
 .sortable-item-delete:hover {
     background-color: black;
     color: white;
+}
+
+.item-go-to {
+    margin: 5% 0;
+    text-align: center;
+    flex-shrink: 0;
 }

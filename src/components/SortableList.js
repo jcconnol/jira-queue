@@ -6,6 +6,7 @@ import styles from '../styles/SortableList.module.css'
  
 const SortableList = (props) => {
   const [any, forceUpdate] = useState(0);
+  var jiraLink = `https://${process.env.REACT_APP_JIRA_SERVER}.atlassian.net/browse/`
 
   async function deleteTicket(e) {
     var index = e.target.getAttribute("index");
@@ -22,6 +23,7 @@ const SortableList = (props) => {
             <button onClick={deleteTicket} className={styles['sortable-item-delete']} index={index}>
               <TiDelete className={styles['item-delete-icon']} index={index} />
             </button>
+            <a className={styles['item-go-to']} index={index} href={jiraLink+value.key}>Go To</a>
           </div>
         ))}
       </div>

@@ -4,8 +4,6 @@ import { SortableElement } from 'react-sortable-hoc';
  
 const SortableItem = (props) => {
 
-  var jiraLink = `https://${process.env.REACT_APP_JIRA_SERVER}.atlassian.net/browse/${props.value.key}`
-
   return (
     <div className={styles['item-container']}>
       <img src={props.value.iconUrl} className={styles['item-icon']} alt=""/>
@@ -16,7 +14,6 @@ const SortableItem = (props) => {
           {props.value.name}
         </span>
         <span className={styles['description']}>{props.value.description}</span>
-        <span className={styles['item-link']}><a href={jiraLink}>Go To</a></span>
       </span>
     </div>
   )
