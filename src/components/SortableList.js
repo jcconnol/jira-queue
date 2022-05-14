@@ -19,7 +19,7 @@ const SortableList = (props) => {
         {props.items.map((value, index) => (
           <div className={styles['sortable-item']}>
             <SortableItem lockAxis="x" key={`item-${index}`} items={props.items} index={index} value={value} />
-            <button onClick={deleteTicket} class={styles['sortable-item-delete']} index={index}>
+            <button onClick={deleteTicket} className={styles['sortable-item-delete']} index={index}>
               <TiDelete className={styles['item-delete-icon']} index={index} />
             </button>
           </div>
