@@ -20,8 +20,8 @@ export const Modal = ({ setShowModal, onModalChange  }) => {
   const changeTicketInfo = (e) => {
     var ticketId = e.target.id;
     switch (ticketId) {
-      case 'ticket-id':
-        ticketData.id = e.target.value
+      case 'ticket-key':
+        ticketData.key = e.target.value
         break;
       case 'ticket-name':
         ticketData.name = e.target.value
@@ -30,7 +30,7 @@ export const Modal = ({ setShowModal, onModalChange  }) => {
         ticketData.description = e.target.value
         break;
       case 'ticket-icon':
-        ticketData.icon = e.target.value
+        ticketData.iconUrl = e.target.value
         break;
       default:
         break;
@@ -43,7 +43,7 @@ export const Modal = ({ setShowModal, onModalChange  }) => {
       <div className={styles["modal"]}>
         <h2>Add Ticket</h2>
         <div>
-          Ticket Id: <input onChange={changeTicketInfo} id="ticket-id"></input>
+          Ticket Id: <input onChange={changeTicketInfo} id="ticket-key"></input>
         </div><div>
           Ticket Name: <input onChange={changeTicketInfo} id="ticket-name"></input>
         </div><div>
