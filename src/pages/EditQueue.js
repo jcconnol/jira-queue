@@ -12,17 +12,6 @@ function EditQueue() {
     setShowModal(true);
   };
 
-  // const addTicket = (addItem) => {
-  //   var addItems = items.push({
-  //     key: addItem.key,
-  //     name: addItem.name,
-  //     iconUrl: addItem.iconUrl,
-  //     description: addItem.description
-  //   });
-
-  //   setItems(addItem);
-  // }
-
   const fetchTickets = async () => {
     await fetch(`https://6gdbc2gqda.execute-api.us-east-2.amazonaws.com/dev/api/get`)
       .then(response => {

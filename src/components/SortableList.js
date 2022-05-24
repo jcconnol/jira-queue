@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SortableItem from './SortableItem';
-import { TiDelete } from 'react-icons/ti';
 import { SortableContainer } from 'react-sortable-hoc';
 import styles from '../styles/SortableList.module.css'
  
@@ -10,8 +9,11 @@ const SortableList = (props) => {
 
   async function deleteTicket(e) {
     var index = e.target.getAttribute("index");
-    props.items.splice(index, index+1);
-    forceUpdate(any+1);
+    console.log(index)
+    if(index != null){
+      props.items.splice(index, 1);
+      forceUpdate(any+1);
+    }
   }
 
   return (
@@ -21,7 +23,7 @@ const SortableList = (props) => {
           <div className={styles['sortable-item']}>
             <SortableItem lockAxis="x" key={`item-${index}`} items={props.items} index={index} value={value} />
             <button onClick={deleteTicket} className={styles['sortable-item-delete']} index={index}>
-              <TiDelete className={styles['item-delete-icon']} index={index} />
+              X
             </button>
             <a className={styles['item-go-to']} index={index} href={jiraLink+value.key}>Go To</a>
           </div>
