@@ -2,11 +2,13 @@ import React, {useEffect, useState} from "react";
 import { arrayMoveImmutable } from 'array-move';
 import SortableList from '../components/SortableList';
 import { Modal } from "../components/Modal";
+import ClipLoader from "react-spinners/ClipLoader";
 import styles from '../styles/EditQueue.module.css'
 
 function EditQueue() {
   const [items, setItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  let [loading, setLoading] = useState(true);
 
   const openSaveModal = () => {
     setShowModal(true);
@@ -19,10 +21,12 @@ function EditQueue() {
       })
       .then(data => {
         setItems(data.ticketList)
+        setLoading(false);
       })
       .catch(err =>{
         console.log(err);
         setItems(['Error fetching tickets!'])
+        setLoading(false);
       })
   };
 
@@ -35,6 +39,7 @@ function EditQueue() {
   };
 
   async function updateTicketList() {
+    setLoading(true);
     var ticketList = [];
     for(var i = 0; i < items.length; i++){
       var itemObj = {
@@ -59,18 +64,20 @@ function EditQueue() {
 
     await fetch(`https://6gdbc2gqda.execute-api.us-east-2.amazonaws.com/dev/api/update`, params)
       .then(response => {
+        setLoading(false);
         alert("Queue Saved!")
         return response
       })
       .catch(err =>{
         console.log(err);
+        setLoading(false);
         alert(err)
         setItems(['Error Saving tickets!'])
       });
   }
 
   const onModalChange = (data) => {
-    items.push(data)
+    items.push(data);
   }
  
   return (
@@ -78,7 +85,7 @@ function EditQueue() {
       <div className={styles['main-container']}>
         <h1>Editing John Connolly&apos;s Queue</h1>
         <div className={styles['list-container']}>
-          <SortableList items={items} onSortEnd={onSortEnd} />
+          {loading ? <ClipLoader /> : <SortableList items={items} onSortEnd={onSortEnd} />}
         </div>
         {showModal ? <Modal setShowModal={setShowModal} onModalChange={(e) => {onModalChange(e)}} /> : null}
         <button onClick={openSaveModal} className={styles['add-tickets-button']}>Add</button>
