@@ -10,9 +10,10 @@ const SortableItem = (props) => {
       <span>
         <span className={styles['item-top-text']}>
           {props.value.key} 
-          <span className={styles['space']} /> 
-          {props.value.name}
         </span>
+        <div>
+          {props.value.name}
+        </div>
         <span className={styles['description']}>{props.value.description}</span>
       </span>
     </div>

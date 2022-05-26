@@ -10,12 +10,12 @@ const UnsortableItem = (props) => {
       <img src={props.value.iconUrl} className={styles['item-icon']}/>
       <span>
         <span className={styles['item-top-text']}>
-          {props.value.key} 
-          <span className={styles['space']} /> 
-          {props.value.name}
+        <a href={jiraLink}>{props.value.key}</a>
         </span>
+        <div>
+          {props.value.name}
+        </div>
         <span className={styles['description']}>{props.value.description}</span>
-        <span className={styles['item-link']}><a href={jiraLink}>Go To</a></span>
       </span>
     </div>
   )
