@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Routes>
           <Route path='/' element={<ShowQueue />} />
-          {/*<Route exact path='/edit' element={<EditQueue/>} />*/}
+          <Route exact path='/edit' element={<EditQueue/>} />
           <Route component={Page404} />
       </Routes>
     </Router>
