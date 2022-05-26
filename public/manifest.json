@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Jira Queue",
+  "name": "A Jira queue to know if your ticket is going to be pulled by someone else.",
   "icons": [
     {
       "src": "favicon.ico",
