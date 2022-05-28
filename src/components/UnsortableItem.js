@@ -10,7 +10,7 @@ const UnsortableItem = (props) => {
       <img src={props.value.iconUrl} className={styles['item-icon']}/>
       <span>
         <span className={styles['item-top-text']}>
-        <a href={jiraLink}>{props.value.key}</a>
+        <a href={jiraLink} target="_blank">{props.value.key}</a>
         </span>
         <div>
           {props.value.name}
