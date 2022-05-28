@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Routes>
-          <Route path='/' element={<ShowQueue />} />
+          <Route path='/' element={<EditQueue />} />
           <Route exact path='/edit' element={<EditQueue/>} />
           <Route component={Page404} />
       </Routes>
