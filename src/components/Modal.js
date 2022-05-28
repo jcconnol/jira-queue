@@ -2,9 +2,12 @@ import React, { useRef, useState } from "react";
 import styles from "../styles/Modal.module.css"
 
 export const Modal = ({ setShowModal, onModalChange  }) => {
-  // close the modal when clicking outside the modal.
-  const [ticketData, updateTicketData] = useState({});
+
   const [radioButton, updateRadioButton] = useState("option1");
+  const [ticketData, updateTicketData] = useState({
+    iconUrl: "https://ramseysolutions.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/23698?size=medium"
+  });
+
 
   const modalRef = useRef();
   const closeModal = (e) => {

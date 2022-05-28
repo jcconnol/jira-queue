@@ -78,6 +78,7 @@ function EditQueue() {
 
   const onModalChange = (data) => {
     items.push(data);
+    updateTicketList();
   }
  
   return (
