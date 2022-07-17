@@ -25,7 +25,7 @@ const SortableList = (props) => {
             <button onClick={deleteTicket} className={styles['sortable-item-delete']} index={index}>
               X
             </button>
-            <a className={styles['item-go-to']} index={index} href={jiraLink+value.key}>Go To</a>
+            <a className={styles['item-go-to']} index={index} href={jiraLink+value.key} target="_blank">Go To</a>
           </div>
         ))}
       </div>

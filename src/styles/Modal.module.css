@@ -14,7 +14,7 @@
 .modal {
     z-index: 3;
     width: 350px;
-    height: 220px;
+    height: 350px;
     background: white;
     display: flex;
     flex-direction: column;
@@ -50,4 +50,9 @@
     to {
         transform: scale(1);
     }
+}
+
+.radio-button-label {
+    display: block;
+    text-align: left;
 }
