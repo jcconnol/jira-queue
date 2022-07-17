@@ -3,9 +3,15 @@ import { arrayMoveImmutable } from 'array-move';
 import SortableList from '../components/SortableList';
 import { Modal } from "../components/Modal";
 import ClipLoader from "react-spinners/ClipLoader";
-import styles from '../styles/EditQueue.module.css'
+import styles from '../styles/EditQueue.module.css';
+import { Amplify } from 'aws-amplify';
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import awsmobile from '../../src/aws-exports';
 
-function EditQueue() {
+Amplify.configure(awsmobile);
+
+function EditQueue({ signOut, user }) {
   const [items, setItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
   let [loading, setLoading] = useState(true);
@@ -82,17 +88,19 @@ function EditQueue() {
   }
  
   return (
-    <div className="App">
-      <div className={styles['main-container']}>
-        <h1>Editing John Connolly&apos;s Queue</h1>
-        <div className={styles['list-container']}>
-          {loading ? <ClipLoader /> : <SortableList items={items} onSortEnd={onSortEnd} />}
+    <Authenticator>
+      <div className="App">
+        <div className={styles['main-container']}>
+          <h1>Editing {user.username}&apos;s Queue</h1>
+          <div className={styles['list-container']}>
+            {loading ? <ClipLoader /> : <SortableList items={items} onSortEnd={onSortEnd} />}
+          </div>
+          {showModal ? <Modal setShowModal={setShowModal} onModalChange={(e) => {onModalChange(e)}} /> : null}
+          <button onClick={openSaveModal} className={styles['add-tickets-button']}>Add</button>
+          <button onClick={updateTicketList} className={styles['save-tickets-button']}>Save</button>
         </div>
-        {showModal ? <Modal setShowModal={setShowModal} onModalChange={(e) => {onModalChange(e)}} /> : null}
-        <button onClick={openSaveModal} className={styles['add-tickets-button']}>Add</button>
-        <button onClick={updateTicketList} className={styles['save-tickets-button']}>Save</button>
       </div>
-    </div>
+    </Authenticator>                                                         
   );
 }
 
