@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "paths": {
+    "/queue-test": {
+      "name": "/queue-test",
+      "lambdaFunction": "jiraqueue41e3fa6c",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}
